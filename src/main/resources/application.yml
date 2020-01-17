@@ -1,7 +1,43 @@
+spring:
+  profiles:
+    active: "dev"
+  main:
+    banner-mode: "off"
+
+# application settings
+app:
+  # maximum record age in minutes
+  max-record-age: 30
+  # how often to purge the database of old records (do not run this job too frequently!)
+  purge-record-frequency: 10
+  # minumum length for the shortened URL
+  min-shorturl-length: 8
+  # maximum length for the shortened URL (minumum and maximum can be set to the same value if you want a fixed length
+  max-shorturl-length: 12
+  # base name for the rest endoint (using "/" means the server root)
+  rest-endpoint-base-name: "/"
+  # rest endoint name for the service that will shorten a URL
+  rest-endpoint-name-for-shorturl: "short"
+  # query string parameter that will contain the URL to shorten
+  rest-query-name-for-shorturl: "url"
+  # rest endoint name for the service that will retrieve a full URL
+  rest-endpoint-name-for-longurl: "long"
+  # query string parameter that will contain the shortened URL
+  rest-query-name-for-longurl: "tiny"
+  # message to return if the full URL is not found
+  error-message-text-for-url-not-found: "URL not founf in DB"
+  
+  
+---
+
 server:
   port: 5000
+  error:
+    whitelabel:
+      enabled: true
 
 spring:
+  profiles: dev
   datasource:
     url: jdbc:h2:mem:testdb
 #    url: jdbc:h2:file:./demo
@@ -16,5 +52,31 @@ spring:
       ddl-auto: update
   h2:
     console:
-      enabled: false
+      enabled: true
+    
+---
 
+spring:
+  profiles: test
+  datasource:
+#    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:file:./demo
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: false
+  
+server:
+  port: 5050
+  error:
+    whitelabel:
+      enabled: false
+  
