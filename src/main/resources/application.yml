@@ -8,11 +8,11 @@ spring:
 app:
   # maximum record age in minutes
   max-record-age: 30
-  # how often to purge the database of old records (do not run this job too frequently!)
-  purge-record-frequency: 10
+  # how often to purge the database of old records - in milliseconds (do not run this job too frequently!)
+  purge-record-frequency: 600000 #10 minutes
   # minumum length for the shortened URL
   min-shorturl-length: 8
-  # maximum length for the shortened URL (minumum and maximum can be set to the same value if you want a fixed length
+  # maximum length for the shortened URL (minumum and maximum can be set to the same value if you want a fixed length)
   max-shorturl-length: 12
   # base name for the rest endoint (using "/" means the server root)
   rest-endpoint-base-name: "/"

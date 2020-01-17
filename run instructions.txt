@@ -6,6 +6,10 @@ different ports (dev=5000, test=5050) and different H2 database schemes (dev=in 
 When running in dev mode the database is replaced with every restart (this can be updated in 
 application.yml).
 
-The application can be started by mvn spring-boot:run or launched with an IDE.
+The application can be started by mvn spring-boot:run or launched with an IDE. Once launched point
+your browser to {host}:{port}{web service root}{endpoint}{query param} - based on configuration:
+(dev default: 
+http://localhost:5000/short?url=www.google.com to receive a shorturl 
+http://localhost:5000/long?tiny=shorturl to get the full url back)
 
 Tests can be run with mvn test or launched from within your IDE.
