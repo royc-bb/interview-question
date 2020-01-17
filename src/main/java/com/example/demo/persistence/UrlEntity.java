@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import com.example.demo.utilities.GenerateShortUrl;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
 /**
@@ -37,6 +39,7 @@ import lombok.Value;
  *
  */
 @Value
+@NoArgsConstructor(force = true)
 @Entity
 @Table(name = "urls")
 public class UrlEntity {
@@ -70,9 +73,8 @@ public class UrlEntity {
     this.timestamp = timestamp;
   }
 
-  // TODO replace the static value for shortUrl with a generator value
   public UrlEntity(String longUrl) {
-    this("aaabbbccc", longUrl, System.currentTimeMillis());
+    this(GenerateShortUrl.generate(), longUrl, System.currentTimeMillis());
   }
 
 
