@@ -1,0 +1,11 @@
+The application.yml file holds the configuration and is well commented.  The defaults match the
+requirements in the README.
+
+There are 2 profiles configured in application.yml (dev and test).  They are configured with 
+different ports (dev=5000, test=5050) and different H2 database schemes (dev=in memory, test=file).
+When running in dev mode the database is replaced with every restart (this can be updated in 
+application.yml).
+
+The application can be started by mvn spring-boot:run or launched with an IDE.
+
+Tests can be run with mvn test or launched from within your IDE.
