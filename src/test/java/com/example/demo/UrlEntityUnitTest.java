@@ -35,7 +35,7 @@ public class UrlEntityUnitTest {
 
     assertThat(singleEntityConstructor.getLongUrl()).isEqualTo("foo");
     assertThat(singleEntityConstructor.getShortUrl()).doesNotContainAnyWhitespaces()
-        .hasSizeGreaterThan(minShortUrlLength).hasSizeLessThan(maxShortUrlLength)
+        .hasSizeGreaterThan(minShortUrlLength - 1).hasSizeLessThan(maxShortUrlLength + 1)
         .doesNotContainPattern(Pattern.compile("[^a-zA-Z0-9]"));
     assertThat(singleEntityConstructor.getTimestamp()).isBetween(System.currentTimeMillis() - 5000,
         System.currentTimeMillis());
@@ -65,14 +65,14 @@ public class UrlEntityUnitTest {
       new UrlEntity(null, "bar", 99999L);
     });
   }
-  
+
   @Test
   public void allValueConstructor_NullLongUrlThrowsException() {
     assertThrows(IllegalArgumentException.class, () -> {
       new UrlEntity("foo", null, 99999L);
     });
   }
-  
+
   @Test
   public void allValueConstructor_TooLongShortUrlThrowsException() {
     assertThrows(IllegalArgumentException.class, () -> {
@@ -87,5 +87,5 @@ public class UrlEntityUnitTest {
     });
   }
 
-  
+
 }
