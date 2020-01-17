@@ -25,7 +25,7 @@ app:
   # query string parameter that will contain the shortened URL
   rest-query-name-for-longurl: "tiny"
   # message to return if the full URL is not found
-  error-message-text-for-url-not-found: "URL not founf in DB"
+  error-message-text-for-url-not-found: "URL not found in DB"
   
   
 ---
