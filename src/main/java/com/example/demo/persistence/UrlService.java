@@ -8,10 +8,11 @@ import org.springframework.stereotype.Service;
 /**
  * Provides abstracted database access for required operations.
  * 
- * <p>Supported operations:
- * <br><b>save(UrlEntity):</b> saves a new UrlEntity to the database
- * <br><b>findById(String):</b> retrieves a UrlEntity from a database based on the short URL value
- * <br><b>purgeOldRecords(long):</b> purges records older than provided timestamp (in milliseconds)
+ * <p>
+ * Supported operations: <br>
+ * <b>save(UrlEntity):</b> saves a new UrlEntity to the database <br>
+ * <b>findById(String):</b> retrieves a UrlEntity from a database based on the short URL value <br>
+ * <b>purgeOldRecords(long):</b> purges records older than provided timestamp (in milliseconds)
  * 
  * @author Roy Cunningham
  *
@@ -39,7 +40,7 @@ public class UrlService {
    * Retrieves a UrlEntity from the database based on the provided short Url.
    * 
    * @param shortUrl String value that represents the short Url. This is the primary key in the
-   * database.
+   *        database.
    * @return <b>UrlEntity</b> if one is found
    * @throws RecordNotFoundException if the provided short Url is not in the database
    */
@@ -55,6 +56,7 @@ public class UrlService {
 
   /**
    * Purge records from the database that have a timestamp older than the provided timestamp.
+   * 
    * @param timestamp long value representing a timestamp in milliseconds
    * @return <b>int</b> representing the number of deleted records
    */
