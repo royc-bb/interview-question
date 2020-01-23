@@ -2,18 +2,16 @@ package com.example.demo.utilities;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
- * Utility class to generate a short value to represent the full length URL.
+ * Utility class to generate a randome string to represent the full length URL.
  * 
  * <p>
- * Using generate() will provide a random string of alphanumeric characters based on the defined
+ * Using generateUrl(String) will provide a random string of alphanumeric characters based on the defined
  * length parameters.
  * 
  * <p>
- * TODO Provide for additional generating strategies
  * 
  * @author Roy Cunningham
  *
@@ -39,6 +37,8 @@ public class RandomShortUrlStrategy implements ShortUrlStrategy {
   }
 
   /**
+   * The String input is ignored as it isn't needed for creating the random string.
+   * 
    * @return <b>String</b> Random alphanumeric string of length specified in application properties
    */
   @Override

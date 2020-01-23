@@ -26,7 +26,9 @@ app:
   rest-query-name-for-longurl: "tiny"
   # message to return if the full URL is not found
   error-message-text-for-url-not-found: "URL not found in DB"
-  shorturl-strategy: "SHA256"
+  # strategy to use for generating the short url
+  shorturl-strategy: "SHA256" # SHA256 hash function
+  #shorturl-strategy: "RandomString" # random string of a length defined above
   
   
 ---
